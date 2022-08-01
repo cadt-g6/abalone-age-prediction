@@ -12,9 +12,7 @@ const PageHeader = ({
   return (
     <>
       <Helmet>
-        <title>
-          {title} | {"Template"}
-        </title>
+        <title>Abalone Prediction</title>
       </Helmet>
       <Stack
         direction={"row"}

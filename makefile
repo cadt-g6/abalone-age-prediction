@@ -6,3 +6,5 @@ build:
 run:
 	docker run -it -p 80:80 ${img_name}
 
+push:
+	docker push ${img_name}
