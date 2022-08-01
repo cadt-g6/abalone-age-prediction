@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const GuestGuard = () => {
   return (
     <>
-      <Stack sx={{ position: "fixed", right: 10, top: 10 }}>
+      <Stack sx={{ position: "fixed", right: 10, top: 10, zIndex: 1 }}>
         <ThemeModeMenu />
       </Stack>
       <Outlet />

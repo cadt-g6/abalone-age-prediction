@@ -36,6 +36,8 @@ const Home: React.FC = () => {
     try {
       const res = await axios.post("/predict-age", data);
       setResult(res.data.age);
+      document.getElementById("slide-to-result").click();
+      toast.success("Prediction successful");
     } catch (error) {
       toast.error(error.message);
     }
@@ -62,13 +64,14 @@ const Home: React.FC = () => {
       sx={{
         p: 3,
         maxWidth: "md",
-        // width: "400px",
-        maxHeight: "90vh",
+        maxHeight: "100vh",
         overflow: "auto",
         position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%,-50%)",
+        top: { xs: 0, md: "50%" },
+        left: { xs: 0, md: "50%" },
+        transform: { xs: 0, md: "translate(-50%,-50%)" },
+        zIndex: 0,
+        height: { xs: "100vh", md: "auto" },
       }}
     >
       <Grid container spacing={2}>
@@ -82,6 +85,7 @@ const Home: React.FC = () => {
               component="img"
               src="/favicon/abalone.png"
               sx={{ height: "150px", objectFit: "contain" }}
+              id="result"
             />
             <Typography
               variant="h3"
@@ -103,7 +107,7 @@ const Home: React.FC = () => {
                 Age prediction of Abalone
               </Typography>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Sex"}
@@ -116,7 +120,7 @@ const Home: React.FC = () => {
                 <MenuItem value={1}>Infant</MenuItem>
               </TextField>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Length"}
@@ -125,7 +129,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Diameter"}
@@ -136,7 +140,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Height"}
@@ -145,7 +149,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Whole weight"}
@@ -156,7 +160,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Shucked weight"}
@@ -167,7 +171,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Viscera weight"}
@@ -178,7 +182,7 @@ const Home: React.FC = () => {
                 type="number"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
                 label={"Shell weight"}
@@ -196,6 +200,7 @@ const Home: React.FC = () => {
                 justifyContent="flex-end"
                 spacing={2}
               >
+                <a id={"slide-to-result"} href="#result" hidden></a>
                 <Button
                   variant="outlined"
                   startIcon={<ClearAllRounded />}
