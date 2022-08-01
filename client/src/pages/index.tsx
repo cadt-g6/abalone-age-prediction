@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Grid,
+  MenuItem,
   Paper,
   Stack,
   TextField,
@@ -44,7 +45,7 @@ const Home: React.FC = () => {
   const clearHandler = () => {
     setResult(null);
     setData({
-      Sex: 0,
+      Sex: 1,
       Length: 0,
       Diameter: 0,
       Height: 0,
@@ -108,8 +109,12 @@ const Home: React.FC = () => {
                 label={"Sex"}
                 value={data["Sex"]}
                 onChange={(e) => onChangeDataHandler("Sex", e.target.value)}
-                type="number"
-              />
+                select
+              >
+                <MenuItem value={2}>Male</MenuItem>
+                <MenuItem value={0}>Female</MenuItem>
+                <MenuItem value={1}>Infant</MenuItem>
+              </TextField>
             </Grid>
             <Grid item xs={12} md={6}>
               <TextField
