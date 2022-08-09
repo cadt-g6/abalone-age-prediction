@@ -1,0 +1,4 @@
+make: Entering directory 'e:/code/personal/abalone_age_prediction'
+docker build -t samdyvin/abalone .
+make: Leaving directory 'e:/code/personal/abalone_age_prediction'
+ 
