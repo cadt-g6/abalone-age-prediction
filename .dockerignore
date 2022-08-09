@@ -1,0 +1,7 @@
+logs
+notebooks
+resources
+LICENSE
+README.md
+client/\*
+!client/build
